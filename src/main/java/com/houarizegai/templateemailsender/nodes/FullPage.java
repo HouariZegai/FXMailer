@@ -39,8 +39,8 @@ public class FullPage {
 
     @Override
     public String toString() {
-        return String.valueOf(new StringBuilder().append(header).append(System.lineSeparator())
-                .append(body).append(System.lineSeparator())
-                .append(footer).append(System.lineSeparator()));
+        return String.valueOf(new StringBuilder().append(header)
+                .append(body)
+                .append(footer));
     }
 }

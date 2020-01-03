@@ -9,9 +9,11 @@ public class Body extends LinkedList<Node> {
             return "";
 
         StringBuilder generatedCode = new StringBuilder();
+        generatedCode.append("<div>\n");
         for(Node node : this) {
-            generatedCode.append(node);
+            generatedCode.append("\t").append(node);
         }
+        generatedCode.append("</div>\n");
 
         return generatedCode.toString();
     }

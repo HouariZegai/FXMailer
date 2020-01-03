@@ -44,6 +44,6 @@ public class Text implements Node {
 
     @Override
     public String toString() {
-        return String.format("<%s style='color: %s'>%s<%s>", textType, color, content, textType);
+        return String.format("<%s style='color: %s'>%s</%s>\n", textType, color, content, textType);
     }
 }
