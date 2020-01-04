@@ -8,14 +8,16 @@ public class Text implements Node {
     private String color;
     private String textType;
 
-    public Text() {
-
-    }
-
     public Text(String content, Color color, TextType textType) {
         this.content = content;
         this.color = color.getCode();
         this.textType = textType.getValue();
+    }
+
+    public Text(String content) {
+        this.content = content;
+        this.color = Color.BLACK.getCode();
+        this.textType = TextType.NORMAL.getValue();
     }
 
     public String getContent() {

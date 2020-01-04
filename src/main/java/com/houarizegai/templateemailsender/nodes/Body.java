@@ -11,7 +11,7 @@ public class Body extends LinkedList<Node> {
         StringBuilder generatedCode = new StringBuilder();
         generatedCode.append("<div>\n");
         for(Node node : this) {
-            generatedCode.append("\t").append(node);
+            generatedCode.append(node);
         }
         generatedCode.append("</div>\n");
 
