@@ -1,9 +1,9 @@
-package com.houarizegai.templateemailsender.global;
+package com.houarizegai.templateemailsender.util;
 
 import java.io.File;
 import java.util.Scanner;
 
-public class Utils {
+public class Tools {
 
     public static String loadFile(String pathname) {
         try {

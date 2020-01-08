@@ -1,4 +1,4 @@
-package com.houarizegai.templateemailsender.global;
+package com.houarizegai.templateemailsender.util;
 
 public class Constants {
     public static final int MAX_FOOTER_CONTACT_LINKS = 3;

@@ -1,6 +1,6 @@
 package com.houarizegai.templateemailsender.nodes;
 
-import java.util.List;
+import com.houarizegai.templateemailsender.util.Tools;
 
 public class FullPage {
     private Header header;
@@ -39,8 +39,10 @@ public class FullPage {
 
     @Override
     public String toString() {
-        return String.valueOf(new StringBuilder().append(header)
+        return String.valueOf(new StringBuilder().append(Tools.loadFile("begin"))
+                .append(header)
                 .append(body)
-                .append(footer));
+                .append(footer)
+                .append(Tools.loadFile("end")));
     }
 }
