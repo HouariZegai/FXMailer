@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Email Design</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+	* {
+		font-family: Arial, sans-serif;
+	}
+
+	.header {
+		font-family: Arial, sans-serif;
+		font-size: 28px;
+		font-weight: bold;
+		background-color: #70bbd9;
+		color: #153643;
+		padding: 40px 0 30px 0;
+		text-align: center;
+	}
+
+	.header img {
+		width: 300px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.body {
+		background-color: #ffffff;
+		padding: 40px 30px 40px 30px;
+	}
+
+	.body .text {
+		padding: 20px 0 30px 0; color: #153643; font-size: 16px; line-height: 20px;
+	}
+
+	.body a {
+		text-decoration: none;
+		color: #2196f3;
+	}
+
+	.footer {
+		font-family: Arial, sans-serif; font-size: 16px; font-weight: normal; color: #ffffff;
+		background-color: #ee4c50;
+		padding: 25px;
+	}
+
+	.footer a {
+		color: #ffffff;
+	}
+</style>
+</head>
+<body style="margin: 0; padding: 0;">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tr>
+			<td style="padding: 10px 0 30px 0;">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">

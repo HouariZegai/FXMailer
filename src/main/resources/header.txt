@@ -1,0 +1,7 @@
+					<!-- header -->
+					<tr>
+						<td class='header'>
+							<img src='%s' alt='Header image' />
+							<div style='margin-top: 20px;'>%s</div>
+						</td>
+					</tr>
