@@ -1,7 +1,7 @@
 package com.houarizegai.templateemailsender.nodes;
 
-import com.houarizegai.templateemailsender.global.Constants;
-import com.houarizegai.templateemailsender.global.Utils;
+import com.houarizegai.templateemailsender.util.Constants;
+import com.houarizegai.templateemailsender.util.Tools;
 
 import java.util.LinkedList;
 
@@ -54,7 +54,7 @@ public class Footer {
 
     @Override
     public String toString() {
-        String footer = Utils.loadFile("footer");
+        String footer = Tools.loadFile("footer");
 
         StringBuilder linksStr = new StringBuilder();
         if(links.isEmpty()) {
@@ -64,7 +64,7 @@ public class Footer {
             while(!links.isEmpty())
                 linksStr.append(" | ").append(links.poll());
 
-            return Utils.replaceString(footer, about, String.valueOf(linksStr));
+            return Tools.replaceString(footer, about, String.valueOf(linksStr));
 
         }
     }

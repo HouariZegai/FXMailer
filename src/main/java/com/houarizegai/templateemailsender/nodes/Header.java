@@ -1,6 +1,6 @@
 package com.houarizegai.templateemailsender.nodes;
 
-import com.houarizegai.templateemailsender.global.Utils;
+import com.houarizegai.templateemailsender.util.Tools;
 
 public class Header {
     private String imagePath;
@@ -32,7 +32,7 @@ public class Header {
 
     @Override
     public String toString() {
-        String header = Utils.loadFile("header");
+        String header = Tools.loadFile("header");
         return String.format(header, imagePath, text);
     }
 }
