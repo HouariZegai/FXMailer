@@ -49,6 +49,9 @@ public class Link implements Node {
 
     @Override
     public String toString() {
+        if(target == null)
+            return String.format("<a href='%s'>%s</a>", url, text);
+
         return String.format("<a href='%s' target='%s'>%s</a>", url, target, text);
     }
 }

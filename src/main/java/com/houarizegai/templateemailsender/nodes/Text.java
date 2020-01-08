@@ -46,6 +46,14 @@ public class Text implements Node {
 
     @Override
     public String toString() {
-        return String.format("<%s style='color: %s'>%s</%s>\n", textType, color, content, textType);
+        String txtTypeOpenTag = "",
+                txtTypeCloseTag = "";
+
+        if(!TextType.NORMAL.getValue().equalsIgnoreCase(textType)) {
+            txtTypeOpenTag = String.format("<%s %s>", textType, color == null ? "style='color: %s'" : "");
+            txtTypeCloseTag = String.format("</%s>", textType);
+        }
+
+        return txtTypeOpenTag + content + txtTypeCloseTag;
     }
 }
