@@ -1,51 +1,71 @@
 package com.houarizegai.templateemailsender.nodes;
 
-import com.houarizegai.templateemailsender.enums.Color;
+import com.houarizegai.templateemailsender.global.Constants;
+import com.houarizegai.templateemailsender.global.Utils;
+
+import java.util.LinkedList;
 
 public class Footer {
-    private String text;
-    private String textColor;
-    private String backgroundColor;
+    private String about;
+    private LinkedList<Link> links;
 
     public Footer() {
+        links = new LinkedList<>();
     }
 
-    public Footer(String text, Color textColor, Color backgroundColor) {
-        this.text = text;
-        this.textColor = textColor.getCode();
-        this.backgroundColor = backgroundColor.getCode();
+    public Footer(String about, Link... links) {
+        this();
+        this.about = about;
+        addLinks(links);
     }
 
-    public String getText() {
-        return text;
+    public String getAbout() {
+        return about;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setAbout(String about) {
+        this.about = about;
     }
 
-    public String getTextColor() {
-        return textColor;
+    public LinkedList<Link> getLinks() {
+        return links;
     }
 
-    public void setTextColor(Color color) {
-        this.textColor = color.getCode();
+    public boolean addLink(Link link) {
+        if(this.links.size() > 3)
+            return false;
+
+        this.links.add(link);
+        return true;
     }
 
-    public String getBackgroundColor() {
-        return backgroundColor;
-    }
+    public boolean addLinks(Link... links) {
+        if(this.links.size() > Constants.MAX_FOOTER_CONTACT_LINKS || links.length == 0)
+            return false;
 
-    public void setBackgroundColor(String backgroundColor) {
-        this.backgroundColor = backgroundColor;
+        for(Link link : links) {
+            this.links.add(link);
+            if(this.links.size() == Constants.MAX_FOOTER_CONTACT_LINKS)
+                break;
+        }
+
+        return true;
     }
 
     @Override
     public String toString() {
-        return String.format(
-                String.valueOf(new StringBuilder("<div style='background: %s'>\n")
-                            .append("\t<h3 style='color: %s'>%s</h3>\n")
-                        .append("</div>\n")),
-                backgroundColor, textColor, text);
+        String footer = Utils.loadFile("footer");
+
+        StringBuilder linksStr = new StringBuilder();
+        if(links.isEmpty()) {
+            return String.format(footer, about, "");
+        } else {
+            linksStr.append("Contact: ").append(links.poll());
+            while(!links.isEmpty())
+                linksStr.append(" | ").append(links.poll());
+
+            return Utils.replaceString(footer, about, String.valueOf(linksStr));
+
+        }
     }
 }
