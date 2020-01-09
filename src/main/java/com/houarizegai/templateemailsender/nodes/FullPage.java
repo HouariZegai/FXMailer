@@ -39,10 +39,10 @@ public class FullPage {
 
     @Override
     public String toString() {
-        return String.valueOf(new StringBuilder().append(Tools.loadFile("begin"))
+        return String.valueOf(new StringBuilder().append(Tools.loadTemplateFile("begin"))
                 .append(header)
                 .append(body)
                 .append(footer)
-                .append(Tools.loadFile("end")));
+                .append(Tools.loadTemplateFile("end")));
     }
 }

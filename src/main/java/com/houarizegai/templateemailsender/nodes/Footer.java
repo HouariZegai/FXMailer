@@ -54,7 +54,7 @@ public class Footer {
 
     @Override
     public String toString() {
-        String footer = Tools.loadFile("footer");
+        String footer = Tools.loadTemplateFile("footer");
 
         StringBuilder linksStr = new StringBuilder();
         if(links.isEmpty()) {

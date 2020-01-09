@@ -1,13 +1,15 @@
 package com.houarizegai.templateemailsender.util;
 
+import com.houarizegai.templateemailsender.App;
+
 import java.io.File;
 import java.util.Scanner;
 
 public class Tools {
 
-    public static String loadFile(String pathname) {
+    public static String loadTemplateFile(String filename) {
         try {
-            File file = new File(Constants.HTML_TEMPLATE_LOCATION + pathname + ".txt");
+            File file = new File(String.format("%s\\%s.txt", Constants.HTML_TEMPLATE_LOCATION, filename, ".txt"));
 
             StringBuilder fileContents = new StringBuilder((int) file.length());
 

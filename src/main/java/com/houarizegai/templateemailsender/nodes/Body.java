@@ -18,7 +18,7 @@ public class Body extends LinkedList<Node> {
     @Override
     public String toString() {
         StringBuilder generatedCode = new StringBuilder();
-        generatedCode.append(Tools.loadFile("body-start"));
+        generatedCode.append(Tools.loadTemplateFile("body-start"));
 
         if(!this.isEmpty()) {
             for(Node node : this) {
@@ -26,7 +26,7 @@ public class Body extends LinkedList<Node> {
             }
         }
 
-        generatedCode.append(Tools.loadFile("body-end"));
+        generatedCode.append(Tools.loadTemplateFile("body-end"));
 
         return generatedCode.toString();
 

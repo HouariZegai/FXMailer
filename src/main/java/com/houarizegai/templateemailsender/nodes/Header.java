@@ -32,7 +32,7 @@ public class Header {
 
     @Override
     public String toString() {
-        String header = Tools.loadFile("header");
+        String header = Tools.loadTemplateFile("header");
         return String.format(header, imagePath, text);
     }
 }
