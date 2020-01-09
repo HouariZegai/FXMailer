@@ -6,3 +6,6 @@ out/
 # Maven
 target/
 log/
+
+# Other
+resources/
