@@ -93,22 +93,26 @@ public class MainController implements Initializable {
                 .setFooter(fieldFooterAbout.getText(), areaFooterContact.getText())
                 .build();
 
-        // init email engine
         EmailEngine emailEngine = new EmailEngine()
                 .setAuth(fieldSenderEmail.getText().trim(), fieldSenderPassword.getText())
-                .setSubject(fieldSubject.getText())
-                .setContent(htmlTemplate)
-                .setHeaderImage(headerImg.getPath());
+                .setSubject(fieldSubject.getText());
 
         if("JSON".equalsIgnoreCase(comboRecevicesFormatType.getSelectionModel().getSelectedItem())) {
             Gson gson = new Gson();
             List<Receiver> receivers = gson.fromJson(areaTo.getText().trim(), new TypeToken<List<Receiver>>(){}.getType());
-            System.out.println(receivers);
 
             for(Receiver receiver : receivers) {
+                htmlTemplate = htmlTemplate.replaceFirst("<name>", "<span style='color: #2196f3'>" + receiver.getName() + "</span>")
+                        .replace("<name>", receiver.getName());
+
+                // init email engine
+                emailEngine.setContent(htmlTemplate)
+                        .setHeaderImage(headerImg.getPath());
+
                 if(emailEngine.send(receiver.getEmail()))
                     System.out.println(receiver.getEmail() + " -> Success");
             }
+            System.out.println("Done!");
         }
 
     }

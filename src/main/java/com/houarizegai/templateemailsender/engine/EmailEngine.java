@@ -53,7 +53,7 @@ public class EmailEngine {
     public EmailEngine setSubject(String subject) {
         // Set Subject: header field
         try {
-            message.setSubject("Testing Subject");
+            message.setSubject(subject);
         } catch (MessagingException e) {
             e.printStackTrace();
         }
