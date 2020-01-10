@@ -1,8 +1,11 @@
 package com.houarizegai.templateemailsender.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.houarizegai.templateemailsender.App;
 import com.houarizegai.templateemailsender.engine.EmailEngine;
 import com.houarizegai.templateemailsender.engine.TemplateBuilder;
+import com.houarizegai.templateemailsender.model.Receiver;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextArea;
@@ -15,6 +18,7 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -96,7 +100,17 @@ public class MainController implements Initializable {
                 .setContent(htmlTemplate)
                 .setHeaderImage(headerImg.getPath());
 
-        System.out.println(emailEngine.send(areaTo.getText().trim()));
+        if("JSON".equalsIgnoreCase(comboRecevicesFormatType.getSelectionModel().getSelectedItem())) {
+            Gson gson = new Gson();
+            List<Receiver> receivers = gson.fromJson(areaTo.getText().trim(), new TypeToken<List<Receiver>>(){}.getType());
+            System.out.println(receivers);
+
+            for(Receiver receiver : receivers) {
+                if(emailEngine.send(receiver.getEmail()))
+                    System.out.println(receiver.getEmail() + " -> Success");
+            }
+        }
+
     }
 
 }
