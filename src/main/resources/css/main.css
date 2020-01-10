@@ -1,0 +1,127 @@
+* {
+    -fx-font-family: Tahoma;
+
+    -base: #2196f3;
+    -primary: #4285f4;
+    -info: #33B5E5;
+    -success: #02C852;
+    -warning: #FF8800;
+    -danger: #FF3547;
+    -default: #666;
+
+    -base-color: #2196f3;
+    -bg-color: #FFF
+}
+
+.root {
+    -fx-padding: 10px;
+    -fx-spacing: 15
+}
+
+.container {
+    -fx-padding: 10px;
+    -fx-background-color: -bg-color;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 6, 0, 0, 0);
+    -fx-background-radius: 10;
+    -fx-spacing: 10
+}
+
+.card {
+    -fx-padding: 15px;
+    -fx-background-color: -bg-color;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 6, 0, 0, 0);
+    -fx-background-radius: 10;
+    -fx-spacing: 15
+}
+
+.title {
+    -fx-font-size: 24px;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, -base 0%, -primary 50%);
+}
+
+.sub-title {
+    -fx-font-size: 16px;
+    -fx-text-fill: -base-color;
+}
+
+.card-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: -base-color;
+}
+
+.txt {
+    -fx-font-size: 13px;
+    -fx-text-fill: #777;
+}
+
+.area {
+    -fx-pref-width: 250px;
+    -fx-pref-height: 240px;
+    -fx-font-size: 14px;
+    -jfx-unfocus-color: #999;
+    -jfx-focus-color: -base-color;
+    -fx-prompt-text-fill: #888;
+}
+
+.field {
+    -fx-pref-width: 250px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 14px;
+    -jfx-label-float: true;
+    -jfx-unfocus-color: #999;
+    -jfx-focus-color: -base-color;
+    -fx-prompt-text-fill: #888;
+}
+
+.field-info {
+
+}
+
+.combo {
+    -fx-font-size: 14px;
+    -jfx-label-float: true;
+    -jfx-unfocus-color: #999;
+    -jfx-focus-color: -base-color;
+    -fx-prompt-text-fill: #888;
+    -fx-cursor: hand;
+}
+
+.btn {
+    -fx-pref-width: 80px;
+    -fx-pref-height: 35px;
+    -fx-background-radius: 5;
+    -fx-font-size: 15px;
+    -jfx-button-type: RAISED;
+    -fx-cursor: hand;
+}
+
+.btn-primary {
+    -fx-text-fill: #FFF;
+    -fx-background-color: -primary;
+}
+
+.btn-info {
+    -fx-text-fill: #FFF;
+    -fx-background-color: -info;
+}
+
+.btn-success {
+    -fx-text-fill: #FFF;
+    -fx-background-color: -success;
+}
+
+.btn-warning {
+    -fx-text-fill: #FFF;
+    -fx-background-color: -warning;
+}
+
+.btn-danger {
+    -fx-text-fill: #FFF;
+    -fx-background-color: -danger;
+}
+
+.btn-load {
+    -fx-pref-width: 60px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 14px;
+}
