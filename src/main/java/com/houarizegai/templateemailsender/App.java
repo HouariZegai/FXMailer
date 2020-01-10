@@ -2,9 +2,33 @@ package com.houarizegai.templateemailsender;
 
 import com.houarizegai.templateemailsender.enums.Tags;
 import com.houarizegai.templateemailsender.nodes.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class App {
+import java.io.IOException;
+
+public class App extends Application {
+    @Override
+    public void start(Stage stage) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
+            stage.setScene(new Scene(root));
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+        stage.setTitle("Template Mails Sender");
+        stage.show();
+    }
+
     public static void main(String[] args) {
+        launch(args);
+    }
+
+    public static String getTemplate() {
         Header header = new Header("null", "JavaFX Course");
         Footer footer = new Footer("Houari ZEGAI, JavaFX Instructor",
                 new Link("GitHub", "https://github.com/houarizegai"),
@@ -24,6 +48,6 @@ public class App {
                 Tags.BR, Tags.HR, new Text("Testing"));
 
         FullPage fullPage = new FullPage(header, body, footer);
-        System.out.println(fullPage);
+        return String.valueOf(fullPage);
     }
 }
