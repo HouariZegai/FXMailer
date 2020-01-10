@@ -5,7 +5,6 @@ import com.houarizegai.templateemailsender.App;
 import java.nio.file.Paths;
 
 public class Constants {
-    public static final int MAX_FOOTER_CONTACT_LINKS = 3;
     public static final String HTML_TEMPLATE_LOCATION;
 
     static { // get relative template folder path
