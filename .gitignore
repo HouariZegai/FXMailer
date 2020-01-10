@@ -8,4 +8,4 @@ target/
 log/
 
 # Other
-resources/
+resource_files/
