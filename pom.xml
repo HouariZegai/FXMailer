@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.houarizegai</groupId>
-    <artifactId>templateemailsender</artifactId>
+    <artifactId>fxmailer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -38,7 +38,6 @@
             <version>1.6.2</version>
         </dependency>
 
-        <!--  Gson: Java to Json conversion -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>

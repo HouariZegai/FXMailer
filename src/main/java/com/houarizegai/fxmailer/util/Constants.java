@@ -1,6 +1,4 @@
-package com.houarizegai.templateemailsender.util;
-
-import com.houarizegai.templateemailsender.App;
+package com.houarizegai.fxmailer.util;
 
 import java.nio.file.Paths;
 

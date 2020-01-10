@@ -1,4 +1,4 @@
-package com.houarizegai.templateemailsender.engine;
+package com.houarizegai.fxmailer.engine;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;

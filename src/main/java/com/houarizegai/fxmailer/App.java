@@ -1,4 +1,4 @@
-package com.houarizegai.templateemailsender;
+package com.houarizegai.fxmailer;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +20,7 @@ public class App extends Application {
         }
 
         this.stage = stage;
-        stage.setTitle("Template Emails Sender");
+        stage.setTitle("FX Mailer");
         stage.show();
     }
 

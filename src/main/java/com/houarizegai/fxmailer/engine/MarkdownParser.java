@@ -1,4 +1,4 @@
-package com.houarizegai.templateemailsender.engine;
+package com.houarizegai.fxmailer.engine;
 
 import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;

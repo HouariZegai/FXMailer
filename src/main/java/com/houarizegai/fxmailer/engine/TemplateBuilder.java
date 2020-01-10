@@ -1,6 +1,6 @@
-package com.houarizegai.templateemailsender.engine;
+package com.houarizegai.fxmailer.engine;
 
-import com.houarizegai.templateemailsender.util.Tools;
+import com.houarizegai.fxmailer.util.Tools;
 
 public class TemplateBuilder {
     private String header, body, footer;

@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.WebView?>
 
-<VBox spacing="10.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.templateemailsender.controller.MainController">
+<VBox spacing="10.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.fxmailer.controller.MainController">
    <children>
-      <Label styleClass="title" text="EmailsSender" />
+      <Label styleClass="title" text="FX Mailer" />
       <HBox alignment="TOP_CENTER" spacing="10.0">
          <children>
             <VBox styleClass="container" HBox.hgrow="ALWAYS">

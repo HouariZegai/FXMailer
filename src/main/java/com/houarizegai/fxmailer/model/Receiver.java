@@ -1,4 +1,4 @@
-package com.houarizegai.templateemailsender.model;
+package com.houarizegai.fxmailer.model;
 
 public class Receiver {
     private String name;

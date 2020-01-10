@@ -1,11 +1,11 @@
-package com.houarizegai.templateemailsender.controller;
+package com.houarizegai.fxmailer.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.houarizegai.templateemailsender.App;
-import com.houarizegai.templateemailsender.engine.EmailEngine;
-import com.houarizegai.templateemailsender.engine.TemplateBuilder;
-import com.houarizegai.templateemailsender.model.Receiver;
+import com.houarizegai.fxmailer.App;
+import com.houarizegai.fxmailer.engine.EmailEngine;
+import com.houarizegai.fxmailer.engine.TemplateBuilder;
+import com.houarizegai.fxmailer.model.Receiver;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextArea;
