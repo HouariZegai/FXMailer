@@ -15,7 +15,7 @@
 
 <VBox spacing="10.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.templateemailsender.controller.MainController">
    <children>
-      <Label styleClass="title" text="Emails Sender" />
+      <Label styleClass="title" text="EmailsSender" />
       <HBox alignment="TOP_CENTER" spacing="10.0">
          <children>
             <VBox styleClass="container" HBox.hgrow="ALWAYS">
@@ -78,7 +78,7 @@
                                     <String fx:value="btn-load" />
                                  </styleClass>
                               </JFXButton>
-                              <Label fx:id="lblHeaderImgName" styleClass="txt" text="javafx.png" />
+                              <Label fx:id="lblHeaderImgName" styleClass="txt" text="" />
                            </children>
                         </HBox>
                         <JFXTextField fx:id="fieldHeaderTitle" promptText="Title">

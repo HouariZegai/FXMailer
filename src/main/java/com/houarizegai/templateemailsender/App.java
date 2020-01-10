@@ -20,7 +20,7 @@ public class App extends Application {
         }
 
         this.stage = stage;
-        stage.setTitle("Template Mails Sender");
+        stage.setTitle("Template Emails Sender");
         stage.show();
     }
 
