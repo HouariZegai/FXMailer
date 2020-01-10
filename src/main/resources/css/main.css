@@ -125,3 +125,23 @@
     -fx-pref-height: 30px;
     -fx-font-size: 14px;
 }
+
+.sending-container {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    -fx-pref-height: 15px;
+}
+
+.lbl-sending-progress {
+    -fx-font-size: 22px;
+}
+
+.lbl-success {
+    -fx-text-fill: -success;
+}
+
+.lbl-danger {
+    -fx-text-fill: -danger;
+}
