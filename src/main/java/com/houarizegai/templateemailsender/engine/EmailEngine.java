@@ -1,14 +1,13 @@
 package com.houarizegai.templateemailsender.engine;
 
-import org.apache.commons.mail.Email;
-
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.mail.*;
-import javax.mail.internet.*;
-import java.util.Iterator;
-import java.util.List;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.util.Properties;
 
 public class EmailEngine {
