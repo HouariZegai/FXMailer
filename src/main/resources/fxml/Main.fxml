@@ -23,7 +23,8 @@
                   <Label styleClass="sub-title" text="Sending Information" />
                   <VBox styleClass="card">
                      <children>
-                        <JFXTextField fx:id="fieldEmailTitle" promptText="Email Title">
+                        <Label styleClass="card-title" text="Subject" />
+                        <JFXTextField fx:id="fieldSubject" promptText="Email Title">
                            <styleClass>
                               <String fx:value="field" />
                               <String fx:value="field-info" />
@@ -101,13 +102,13 @@
                   <VBox styleClass="card">
                      <children>
                         <Label styleClass="card-title" text="Footer" />
-                        <JFXTextField fx:id="fieldFooterAbout" promptText="About">
+                        <JFXTextField fx:id="fieldFooterAbout" promptText="About (left side)">
                            <styleClass>
                               <String fx:value="field" />
                               <String fx:value="field-info" />
                            </styleClass>
                         </JFXTextField>
-                        <JFXTextArea fx:id="areaFooterContactLinks" labelFloat="true" promptText="Contact links" style="-fx-pref-height: 55px;" styleClass="area">
+                        <JFXTextArea fx:id="areaFooterContact" labelFloat="true" promptText="Contact (right side)" style="-fx-pref-height: 55px;" styleClass="area">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
