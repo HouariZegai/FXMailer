@@ -6,13 +6,12 @@ import com.houarizegai.fxmailer.App;
 import com.houarizegai.fxmailer.engine.EmailEngine;
 import com.houarizegai.fxmailer.engine.TemplateBuilder;
 import com.houarizegai.fxmailer.model.Receiver;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXPasswordField;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 
@@ -55,6 +54,22 @@ public class MainController implements Initializable {
 
     private String htmlTemplate;
 
+    /* Start sending status */
+
+    @FXML
+    private StackPane stackSendingContainer;
+
+    @FXML
+    private Label lblNumberOfSent, lblNumberOfReceivers, lblNumberOfSuccess, lblNumberOfFailed;
+
+    @FXML
+    private JFXProgressBar progressSending;
+
+    @FXML
+    private JFXButton btnDone;
+
+    /* End sending status */
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // init combobox
@@ -87,34 +102,69 @@ public class MainController implements Initializable {
 
     @FXML
     private void onSend() {
-        htmlTemplate = new TemplateBuilder()
+        TemplateBuilder templateBuilder = new TemplateBuilder()
                 .setHeader("cid:headerImage", fieldHeaderTitle.getText())
-                .setBody(areaBody.getText())
-                .setFooter(fieldFooterAbout.getText(), areaFooterContact.getText())
-                .build();
+                .setFooter(fieldFooterAbout.getText(), areaFooterContact.getText());
 
         EmailEngine emailEngine = new EmailEngine()
                 .setAuth(fieldSenderEmail.getText().trim(), fieldSenderPassword.getText())
                 .setSubject(fieldSubject.getText());
 
         if("JSON".equalsIgnoreCase(comboRecevicesFormatType.getSelectionModel().getSelectedItem())) {
+            stackSendingContainer.setVisible(true);
+
             Gson gson = new Gson();
             List<Receiver> receivers = gson.fromJson(areaTo.getText().trim(), new TypeToken<List<Receiver>>(){}.getType());
 
-            for(Receiver receiver : receivers) {
-                htmlTemplate = htmlTemplate.replaceFirst("<name>", "<span style='color: #2196f3'>" + receiver.getName() + "</span>")
-                        .replace("<name>", receiver.getName());
+            clearSendingStatus();
+            int numberOfReceivers = receivers.size();
+            lblNumberOfReceivers.setText(String.valueOf(numberOfReceivers));
 
-                // init email engine
-                emailEngine.setContent(htmlTemplate)
-                        .setHeaderImage(headerImg.getPath());
+            new Thread(()->
+            Platform.runLater(() -> {
+                for(Receiver receiver : receivers) {
+                   templateBuilder.setBody(areaBody.getText()
+                            .replaceFirst("<name>", "<span style='color: #2196f3'>" + receiver.getName() + "</span>")
+                            .replace("<name>", receiver.getName()));
 
-                if(emailEngine.send(receiver.getEmail()))
-                    System.out.println(receiver.getEmail() + " -> Success");
-            }
-            System.out.println("Done!");
+                    // init email engine
+                    emailEngine.setContent(templateBuilder.build())
+                            .setHeaderImage(headerImg.getPath());
+
+                    boolean isSent = emailEngine.send(receiver.getEmail());
+                    if (isSent) {
+                        System.out.println(receiver.getEmail() + " -> Success");
+                        lblNumberOfSuccess.setText(String.valueOf(Integer.parseInt(lblNumberOfSuccess.getText()) + 1));
+                    } else {
+                        System.out.println(receiver.getEmail() + " -> Failed");
+                        lblNumberOfFailed.setText(String.valueOf(Integer.parseInt(lblNumberOfFailed.getText()) + 1));
+                    }
+
+                    lblNumberOfSent.setText(String.valueOf(Integer.valueOf(lblNumberOfSent.getText()) + 1));
+                    progressSending.setProgress(Integer.valueOf(lblNumberOfSent.getText()) / (double) numberOfReceivers);
+
+                    btnDone.setDisable(false);
+                }
+            })
+            ).start();
         }
 
+    }
+
+    private void clearSendingStatus() {
+        lblNumberOfSent.setText("0");
+        lblNumberOfReceivers.setText(null);
+        lblNumberOfSuccess.setText("0");
+        lblNumberOfFailed.setText("0");
+        progressSending.setProgress(0d);
+        btnDone.setDisable(true);
+    }
+
+    /* sending status actions */
+
+    @FXML
+    private void onDone() {
+        stackSendingContainer.setVisible(false);
     }
 
 }

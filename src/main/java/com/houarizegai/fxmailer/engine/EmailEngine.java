@@ -1,5 +1,7 @@
 package com.houarizegai.fxmailer.engine;
 
+import javafx.application.Platform;
+
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
@@ -9,14 +11,15 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.util.Properties;
+import java.util.concurrent.Semaphore;
 
 public class EmailEngine {
     private Properties props;
     private Session session;
-    Message message;
+    private Message message;
 
-    MimeMultipart multipart;
-    BodyPart messageBodyPart;
+    private MimeMultipart multipart;
+    private BodyPart messageBodyPart;
 
     public EmailEngine() {
         props = new Properties();
@@ -94,7 +97,6 @@ public class EmailEngine {
     }
 
     public boolean send(String recipient) {
-
         try {
             // Set To: header field of the header.
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
