@@ -7,7 +7,7 @@ public class TemplateBuilder {
 
     public TemplateBuilder setHeader(String imagePath, String title) {
         this.header = String.format(Tools.loadTemplateFile("header"),
-                imagePath == null ? "" : title,
+                imagePath == null ? "" : imagePath,
                 title == null ? "" : title);
 
         return this;

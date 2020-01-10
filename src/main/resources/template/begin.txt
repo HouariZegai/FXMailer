@@ -43,7 +43,7 @@
 	.footer {
 		font-family: Arial, sans-serif; font-size: 16px; font-weight: normal; color: #ffffff;
 		background-color: #ee4c50;
-		padding: 25px;
+		padding: 20px;
 	}
 
 	.footer a {
