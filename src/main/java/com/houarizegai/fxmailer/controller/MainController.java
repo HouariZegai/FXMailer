@@ -122,6 +122,7 @@ public class MainController implements Initializable {
 
             new Thread(()->
             Platform.runLater(() -> {
+                int numberOfSent = 0;
                 for(Receiver receiver : receivers) {
                    templateBuilder.setBody(areaBody.getText()
                             .replaceFirst("<name>", "<span style='color: #2196f3'>" + receiver.getName() + "</span>")
@@ -132,11 +133,12 @@ public class MainController implements Initializable {
                             .setHeaderImage(headerImg.getPath());
 
                     boolean isSent = emailEngine.send(receiver.getEmail());
+                    numberOfSent++;
                     if (isSent) {
-                        System.out.println(receiver.getEmail() + " -> Success");
+                        System.out.println(String.format("%s -> Success [%d/%d]", receiver.getEmail(), numberOfSent, numberOfReceivers));
                         lblNumberOfSuccess.setText(String.valueOf(Integer.parseInt(lblNumberOfSuccess.getText()) + 1));
                     } else {
-                        System.out.println(receiver.getEmail() + " -> Failed");
+                        System.out.println(String.format("%s -> Failed [%d/%d]", receiver.getEmail(), numberOfSent, numberOfReceivers));
                         lblNumberOfFailed.setText(String.valueOf(Integer.parseInt(lblNumberOfFailed.getText()) + 1));
                     }
 
