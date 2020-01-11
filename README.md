@@ -29,6 +29,8 @@ Template (result)           |
 * Java version 8 (JDK 8)
 * Maven
 * Internet connection
+* Sender Email must be Gmail
+* Allowing less secure apps to access your account ([Learn more](https://support.google.com/accounts/answer/6010255?hl=en))
 
 ## Libraries used
 * JFoenix (Material design)
